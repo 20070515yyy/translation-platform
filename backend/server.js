@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -15,8 +16,7 @@ app.use(bodyParser.json());
 app.use(compression());
 
 // 配置DeepSeek API
-const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || 'your-deepseek-api-key';
-const DEEPSEEK_API_URL = 'https://api.deepseek.com/v1/chat/completions';
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
 // 离线翻译缓存目录
 const OFFLINE_CACHE_DIR = path.join(__dirname, 'offline-cache');
